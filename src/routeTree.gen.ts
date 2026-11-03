@@ -10,33 +10,90 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as HogarRouteImport } from './routes/hogar'
+import { Route as MotosRouteImport } from './routes/motos'
+import { Route as NosotrosRouteImport } from './routes/nosotros'
+import { Route as TallerRouteImport } from './routes/taller'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HogarRoute = HogarRouteImport.update({
+  id: '/hogar',
+  path: '/hogar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MotosRoute = MotosRouteImport.update({
+  id: '/motos',
+  path: '/motos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NosotrosRoute = NosotrosRouteImport.update({
+  id: '/nosotros',
+  path: '/nosotros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TallerRoute = TallerRouteImport.update({
+  id: '/taller',
+  path: '/taller',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/hogar': typeof HogarRoute
+  '/motos': typeof MotosRoute
+  '/nosotros': typeof NosotrosRoute
+  '/taller': typeof TallerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/hogar': typeof HogarRoute
+  '/motos': typeof MotosRoute
+  '/nosotros': typeof NosotrosRoute
+  '/taller': typeof TallerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/hogar': typeof HogarRoute
+  '/motos': typeof MotosRoute
+  '/nosotros': typeof NosotrosRoute
+  '/taller': typeof TallerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/contacto' | '/hogar' | '/motos' | '/nosotros' | '/taller'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/contacto' | '/hogar' | '/motos' | '/nosotros' | '/taller'
+  id:
+    | '__root__'
+    | '/'
+    | '/contacto'
+    | '/hogar'
+    | '/motos'
+    | '/nosotros'
+    | '/taller'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactoRoute: typeof ContactoRoute
+  HogarRoute: typeof HogarRoute
+  MotosRoute: typeof MotosRoute
+  NosotrosRoute: typeof NosotrosRoute
+  TallerRoute: typeof TallerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +105,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hogar': {
+      id: '/hogar'
+      path: '/hogar'
+      fullPath: '/hogar'
+      preLoaderRoute: typeof HogarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/motos': {
+      id: '/motos'
+      path: '/motos'
+      fullPath: '/motos'
+      preLoaderRoute: typeof MotosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nosotros': {
+      id: '/nosotros'
+      path: '/nosotros'
+      fullPath: '/nosotros'
+      preLoaderRoute: typeof NosotrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/taller': {
+      id: '/taller'
+      path: '/taller'
+      fullPath: '/taller'
+      preLoaderRoute: typeof TallerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactoRoute: ContactoRoute,
+  HogarRoute: HogarRoute,
+  MotosRoute: MotosRoute,
+  NosotrosRoute: NosotrosRoute,
+  TallerRoute: TallerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

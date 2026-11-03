@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Zoesa
+
+quiero que rediseñes http://www.zoesamotos.com.ar/ y la conviertas en una web totalmente funcional moderna llamativa que el cliente le sea facil y agil utilizar utiliza colores claros y oscuros movimientos modernos estilo moderno y responsive
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://zoesa.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/3743db24-aa07-4bec-bf97-490eaff1ebce).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS

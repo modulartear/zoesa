@@ -38,12 +38,12 @@ const field =
 
 function TallerPage() {
   const [form, setForm] = useState({ nombre: "", moto: "", servicio: OPTIONS[0], dia: "", detalle: "" });
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<{ nombre?: string; moto?: string }>({});
   const set = (k: keyof typeof form) => (e: { target: { value: string } }) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
-    const errs: Record<string, string> = {};
+    const errs: { nombre?: string; moto?: string } = {};
     if (form.nombre.trim().length < 2) errs.nombre = "Contanos tu nombre";
     if (form.moto.trim().length < 2) errs.moto = "Indicá marca y modelo";
     setErrors(errs);

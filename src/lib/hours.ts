@@ -45,7 +45,7 @@ const fmt = (m: number) => {
 
 export function openStatus(date: Date): { open: boolean; label: string } {
   const { day, minutes } = argentinaClock(date);
-  const today = SCHEDULE[day];
+  const today = SCHEDULE[day] ?? [];
   const current = today.find(([o, c]) => minutes >= o && minutes < c);
   if (current) return { open: true, label: `Abierto ahora · cierra a las ${fmt(current[1])} hs` };
 
@@ -54,7 +54,7 @@ export function openStatus(date: Date): { open: boolean; label: string } {
 
   for (let i = 1; i <= 7; i++) {
     const d = (day + i) % 7;
-    const first = SCHEDULE[d][0];
+    const first = SCHEDULE[d]?.[0];
     if (first) {
       const when = i === 1 ? "mañana" : `el ${DAY_NAMES[d]}`;
       return { open: false, label: `Cerrado · abre ${when} a las ${fmt(first[0])} hs` };
